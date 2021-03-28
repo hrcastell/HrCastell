@@ -1,60 +1,281 @@
-<!Doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>ResumenCV</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
+  <!-- Site Properties -->
+  <title>Inicio - HR-Castell</title>
+  <link rel="stylesheet" type="text/css" href="dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="dist/components/transition.css">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+
+  <style type="text/css">
+
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+
+  </style>
+
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="dist/components/visibility.js"></script>
+  <script src="dist/components/sidebar.js"></script>
+  <script src="dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
 </head>
 <body>
 
-<header class="subnav-hero-section">
-    <h1 class="subnav-hero-headline">Desarrollador Full Stack <small>by HR-Castell</small></h1>
-      <ul class="subnav-hero-subnav">
-        <li><a href="#">Carrera</a></li>
-        <li><a href="#" class="is-active">Desarrollo</a></li>
-        <li><a href="#">Herramientas</a></li>
-      </ul>
-</header>
-
-<div class="marketing-site-hero">
-  <div class="marketing-site-hero-content">
-    <h1>Hernán Castellanos</h1>
-    <p>Hola!, me llamo Hernán, soy desarrollador web </p>
-    <a href="#" class="round button">Sobre mi</a>
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="active item">Inicio</a>
+    <a class="item">Servicios</a>
+    <a class="item">Sobre mi</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui button" href="tel:+56973126500">Llamar</a>
+      </div>
+      <div class="item">
+        <a class="ui primary button" href="https://api.whatsapp.com/send?phone=56973126500">Whatsapp</a>
+      </div>
+    </div>
   </div>
 </div>
 
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="active item">Inicio</a>
+  <a class="item">Servicios</a>
+  <a class="item">Sobre mi</a>
+</div>
 
-<footer class="social-footer">
-      <div class="social-footer-left">
-        <p class="footer-copyright subheader"><small>© 2018 – 
-                <script type="text/javascript">
-                  document.write(new Date().getFullYear());
-                </script>
-                Hernán Castellanos</small>
-              </p>
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Inicio</a>
+        <a class="item">Servicios</a>
+        <a class="item">Sobre mi</a>
+        <div class="right item">
+          <a class="ui inverted button" href="tel:+56973126500">Llamar</a>
+          <a class="ui inverted button" href="https://api.whatsapp.com/send?phone=56973126500">Whatsapp</a>
+        </div>
       </div>
-    <div class="social-footer-icons">
-      <ul class="menu simple">
-        <li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-        <li><a href="https://www.pinterest.com/"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-        <li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="https://twitter.com/?lang=en"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-        <li><a href="https://twitter.com/?lang=en"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-      </ul>
     </div>
-</footer>
 
-    <script src="js/vendor.js"></script>
-    <script src="js/foundation.js"></script>
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        Hernán Castellanos
+      </h1>
+      <h2>Asesor y Diseñador Web</h2>
+      <h3>Crea tu página web</h3>
+      <div class="ui huge primary button">Saber mas <i class="right arrow icon"></i></div>
+    </div>
+
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">Soy Diseñador web.</h3>
+          <p>Hola! Mi nombre es Hernán Castellanos y soy diseñador web en Santiago de chile. Desde hace más de 3 años ofrezco servicios creativos de manera independiente y destaco gracias a mis procesos claros con mis clientes, diseños agradables y las herramientas para impulsar sus ventas.</p>
+          <h3 class="ui header">Sobre mi</h3>
+          <p>A lo largo de mi vida, me he forjado en base a la disciplina, lealtad y humildad. siempre enfocado en brindar la mejor versión de mi con el objetivo de atender necesidades, aportar valor y mejorar la calidad de vida de las personas. 
+
+          En busca de la excelencia, me he perfeccionado a nivel profesional con la intención de otorgar eficiencia en mis desarrollos. </p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="assets/images/hernan castellanos.png" class="ui large bordered rounded image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button">Saber mas</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">Cree su sitio Web</h3>
+      <p>Ya sea una página de destino, un portfolio a o una tienda en línea, un sitio web nunca ha sido tan esencial para los propietarios de empresas como lo es hoy en día.</p>
+      <h4 class="ui horizontal header divider">
+        <a href="#">Mis servicios</a>
+      </h4>
+      <h3 class="ui header">¿Cuales son los beneficios?</h3>
+      <p>Los sitios web no solo lo ayudan a promocionar y vender sus ofertas, sino que también crean credibilidad en línea y muestran a los potenciales clientes de qué se trata su negocio. La mayoría de los clientes investigan brevemente en línea antes de elegir un servicio o producto. Si no pueden encontrarlo, es posible que asuman que no está disponible o que no es confiable. De cualquier manera, esto no es lo que quiere que piensen.</p>
+    </div>
+  </div>
+
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="six wide column">
+          <h4 class="ui inverted header">Sigueme en mi redes sociales</h4>
+          <div class="ui inverted link list">
+            <a href="https://www.instagram.com/hernan.ricardo286/" class="item">Instagram</a>
+            <a href="https://www.facebook.com/hrcastellanos" class="item">Facebook</a>
+            <a href="https://www.linkedin.com/in/hrcastell/" class="item">Linkedin</a>
+            <a href="https://github.com/hrcastell" class="item">Github</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Asitencia</h4>
+          <p>horario flexibles y disponibilidades inmediatas, puedo asistirete en tu requerimiento a cualquier hora y en cualquier momentos. puedes contactarme directamente a mi numero personal.</p>
+          <a href="" class="item">hernanr.castellanosc@outlook.com</a>
+        </div>
+        <br>
+        <br>
+        <div class="footer-copyright">
+            <div class="container">
+            © 2018 – 
+            <script type="text/javascript">
+              document.write(new Date().getFullYear());
+            </script>
+            <noscript>
+              2021
+            </noscript> Todo los derechos reservados  |  Made by <a class="blue-text text-lighten-3" href="https://hrcastell.com">Hr-Castell</a> on Semantic UI.
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
+
 </html>
