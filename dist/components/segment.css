@@ -736,8 +736,12 @@
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background: #092540;
-  color: rgba(255, 255, 255, 0.9);
+  background: rgb(37, 40, 80);
+  background: linear-gradient(
+    30deg,
+    rgba(37, 40, 80, 1) 0%,
+    rgba(28, 61, 245, 1) 100%
+  );
 }
 
 /* Nested */
